@@ -13,6 +13,12 @@ class KomaList {
     komaArray[8] = new Niwatori("niwatori", 0, 0, 0, false);
     komaArray[9] = new Niwatori("niwatori", 5, 0, 1, false);
   }
+  AbstractKoma getKomaFromPlace(int x, int y) {
+    for (AbstractKoma k : this.komaArray) {
+      if (x == k.x && y == k.y && k.kStat.active) return k;
+    }
+    return null;
+  }
   void draw() {
     for (AbstractKoma k : komaArray) {
       k.draw();
